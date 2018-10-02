@@ -78,19 +78,30 @@ const getRelated = rela =>{
         }, 1500, rela);
     });
 };
-dirIDs
-    .then(IDs => {
-        console.log(IDs);
-        return getrecipe2(IDs[2]);
-    })
-    .then(recipe=>{
-        console.log(recipe);
-        return getRelated(recipe);
-    })
-    .then(recipe => {
-        console.log(recipe);
-    })
-    .catch(err => {
-        console.log(err);
-    });
+// dirIDs
+//     .then(IDs => {
+//         console.log(IDs);
+//         return getrecipe2(IDs[2]);
+//     })
+//     .then(recipe=>{
+//         console.log(recipe);
+//         return getRelated(recipe);
+//     })
+//     .then(recipe => {
+//         console.log(recipe);
+//     })
+//     .catch(err => {
+//         console.log(err);
+//     });
 
+// Asynch Await
+
+async function getrecipeAW (){
+    const IDs = await(dirIDs);
+    console.log(IDs);
+    const recipe = await(getrecipe2(IDs[2]));
+    console.log(recipe);
+    const related = await(getRelated(recipe));
+    console.log(related);
+}
+getrecipeAW ();
