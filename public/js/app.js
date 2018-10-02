@@ -107,6 +107,8 @@ async function getrecipeAW (){
 }
 
 // This aboive is synchronous
-const rec = getrecipeAW();
-console.log(rec);
-
+// const rec = getrecipeAW();
+// console.log(rec);
+getrecipeAW().then(result=>{
+    console.log(`This is the best: ${result}`);
+});
