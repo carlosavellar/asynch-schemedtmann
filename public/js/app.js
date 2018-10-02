@@ -37,12 +37,45 @@ thirth();
 // getRecipe();
 
 
-const getID = new Promise((resolve, reject)=>{
-    setTimeout(()=>
-        resolve([[223,455,787,333]]),
-    1500);
+// const getID = new Promise((resolve, reject)=>{
+//     setTimeout(()=>
+//         resolve([[223,455,787,333]]),
+//     1500);
+// });
+
+// getID.then(IDs=>{
+//     console.log(IDs);
+// });
+
+const dirIDs = new Promise((resolve, reject)=>{
+    setTimeout(()=>{
+        resolve([223,455,787,333]);
+    }, 1500);
 });
 
-getID.then(IDs=>{
+const geTRecipe =  recID => {
+    return new Promisse((resolve, reject)=>{
+        setTimeout(ID, 1500, recID);
+    });
+};
+
+const getrecipe2 = RecID =>{
+    return new Promise((resolve, reject)=>{
+        setTimeout(ID=>{
+            const recipe = { title: "Tomato estrogonofrato", publisher: 'José Carlos' };
+            console.log(`${ID} e o sei lá ${recipe.publisher}`);
+        }, 1500, RecID);
+    });
+};
+dirIDs
+  .then(IDs=>{
     console.log(IDs);
+    return getrecipe2(IDs[2]);
+})
+   .then(()=>{
+       console.log(recipe);
+   })
+.catch(err=>{
+    console.log(err);
 });
+
