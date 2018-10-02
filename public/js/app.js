@@ -103,5 +103,10 @@ async function getrecipeAW (){
     console.log(recipe);
     const related = await(getRelated(recipe));
     console.log(related);
+    return recipe;
 }
-getrecipeAW ();
+
+// This aboive is synchronous
+const rec = getrecipeAW();
+console.log(rec);
+
