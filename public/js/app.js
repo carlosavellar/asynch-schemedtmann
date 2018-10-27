@@ -1,4 +1,3 @@
-
 // Simple timeout
 /* const first = ()=>{
     console.log('Primeiro');
@@ -140,6 +139,31 @@ thirth();
 
 // sayRecipie();
 
-
 //Promises
 
+
+const fuckRecipe = new Promise((resolved, rejected) => {
+    setTimeout(() => {
+        resolved([123, 445, 899, 445]);
+    }, 1500);
+});
+
+const getRecipe = recId =>{
+    return new Promise((resolved, rejected)=>{
+        setTimeout((id) => {
+            const recipe = { publisher: 'Carlos', title: 'Potarto Craralho', cor: 'azul' };
+            resolved(`${id}: ${recipe.publisher}`);
+        }, 1500, recId);
+    });
+};
+ 
+fuckRecipe.then((IDs) => {
+        console.log(IDs);
+        return getRecipe(IDs);
+    })
+    .then(recipe=>{
+        console.log(recipe);
+    })
+    .catch((err) => {
+        console.log(`${Working} ${err}`);
+    });
