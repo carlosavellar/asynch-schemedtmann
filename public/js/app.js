@@ -128,8 +128,7 @@ thirth();
 //                 const recipe = { publisher: 'Carlos', title: 'Potarto Craralho', cor: 'azul' };
 //                 console.log(`${id}: ${recipe.publisher}`);
 //                 setTimeout((publisher) => {
-//                     const recipe2 = { publisher: 'Mastodont', title: 'Carilho', cor: 'azul' };
-//                     console.log(recipe2);
+//                     
 //                 }, 2000, recipe.publisher);
 //             }, 1000, recipiesID[2]);
 
@@ -142,28 +141,43 @@ thirth();
 //Promises
 
 
-const fuckRecipe = new Promise((resolved, rejected) => {
+const getIDs = new Promise((resolved, rejected)=>{
     setTimeout(() => {
-        resolved([123, 445, 899, 445]);
+        resolved([123,445,445]);
     }, 1500);
 });
 
-const getRecipe = recId =>{
+const getRecipe = recID =>{
     return new Promise((resolved, rejected)=>{
-        setTimeout((id) => {
-            const recipe = { publisher: 'Carlos', title: 'Potarto Craralho', cor: 'azul' };
-            resolved(`${id}: ${recipe.publisher}`);
-        }, 1500, recId);
+        setTimeout(id => {
+                const recipe = { publisher: 'Carlos', title: 'Potarto Craralho', cor: 'azul' };
+                resolved(`${id}, ${recipe.title}`);
+        }, 1000, recID);
     });
 };
- 
-fuckRecipe.then((IDs) => {
-        console.log(IDs);
-        return getRecipe(IDs);
-    })
-    .then(recipe=>{
-        console.log(recipe);
-    })
-    .catch((err) => {
-        console.log(`${Working} ${err}`);
+
+const getPub = recPub =>{
+    return new Promise((resolved, rejected)=>{
+        setTimeout((pub) => {
+            const recipe = { publisher: 'José', title: 'Potarto Craralho', cor: 'azul' };  
+            resolved(`${pub}: ${recipe.publisher}`);
+        }, 2000, recPub);
     });
+};
+
+
+getIDs
+.then(IDs=>{
+    console.log(IDs);
+    return getRecipe(IDs);
+})
+.then(recipe=>{
+    console.log(recipe);
+    return getPub(recipe);
+})
+.then(publ=>{
+    console.log(publ);
+})
+.catch(error=>{
+    console.log('Error');
+});
