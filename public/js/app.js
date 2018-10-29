@@ -138,7 +138,7 @@ thirth();
 
 // sayRecipie();
 
-//Promises
+// Producing Promises
 
 
 const getIDs = new Promise((resolved, rejected)=>{
