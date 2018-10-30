@@ -1,0 +1,23 @@
+{
+    "undef": true,
+    "unused": true,
+    "globals": {
+        "MY_GLOBAL": false
+    },
+    "curly": true,
+    "varstmt": true,
+    "trailingcomma": true,
+    "strict": false,
+    "nocomma": true,
+    "latedef": true,
+    "eqeqeq": true,
+    "asi": true,
+    "evil": true,
+    "loopfunc": true,
+    "notypeof": true,
+    "scripturl": true,
+    "supernew": true,
+    "noarg": true,
+    "devel": true,
+    "esversion": 6
+}
